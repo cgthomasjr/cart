@@ -98,13 +98,11 @@ public class Cart {
         computeTotal(myItem);        
         computeDscntVle();
         computeDscntTtl();
-        //alert(myItem.name+","+myItem.price);
     }
     ArrayList rtrveItems() {
         return items;
     }    
     private void computeDscntTtl() {
-        double dscntTotal = 0;
         double aTotal = getTotal();
         double discountValue = getDscntVle();               
         dscntTtl = aTotal - discountValue;

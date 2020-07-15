@@ -6,7 +6,6 @@
 package com.cgtcorp.project1;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Map;
@@ -18,8 +17,6 @@ import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -46,24 +43,6 @@ public class JSONCartUtil {
         this.jsonsrvr = myJsonsrvr;
     }
     
-    /*
-    public void processCart(HttpServletRequest myRequest, HttpServletResponse myResponse)
-            throws IOException {
-        myResponse.setContentType("application/json");
-        String jsonData1 = myRequest.getParameter("json");
-        
-        Cart aCart = retrieveCart(jsonData1);
-        String jsonData2 = retrieveJSON(aCart);
-        
-        String aLocation = "additionalinfo.jsp?json=" + jsonData2;
-        PrintWriter out = null;
-        try {
-            out = myResponse.getWriter();
-            myResponse.sendRedirect(aLocation);
-        } finally {
-            out.close();
-        }
-    }*/
     public void process() throws IOException{
         jsonsrvr = retrieveJSON();
     }
@@ -105,7 +84,6 @@ public class JSONCartUtil {
     public String retrieveJSON(Cart myCart) {
         Map config = null;
         JsonBuilderFactory factory = Json.createBuilderFactory(config);
-        //JsonObject value = factory.createObjectBuilder()
         JsonObjectBuilder builder = factory.createObjectBuilder();
 
         int nmbrItems = myCart.getNmbrItems();
